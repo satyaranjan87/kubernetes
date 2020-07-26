@@ -4,16 +4,16 @@
 
   tasks:
   - name: create docker image using war file
-    command: docker build -t simple-devops-image:latest .
+    command: docker build -t tomcat-image:latest .
     args:
-      chdir: /opt/k8s-lab
+      chdir: /opt/k8s
 
   - name: create tag to image
-    command: docker tag simple-devops-image yankils/simple-devops-image
+    command: docker tag tomcat-image satyaranjan87/tomcat-image
 
   - name: push image on to dockerhub
-    command: docker push yankils/simple-devops-image
+    command: docker push satyaranjan87/tomcat-image
 
   - name: remove docker images form ansible server
-    command: docker rmi simple-devops-image:latest yankils/simple-devops-image
+    command: docker rmi tomcat-image:latest satyaranjan87/tomcat-image
     ignore_errors: yes
